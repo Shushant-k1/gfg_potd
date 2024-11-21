@@ -1,14 +1,11 @@
 class Solution:
     def maximumProfit(self, prices):
-        # code here
         ans = 0
-        n = len(prices)
-        cur = prices[0]
-        for i in range(1 , n) :
-            if prices[i] > cur :
-                ans = max(ans , prices[i] - cur)
-            else :
-                cur = prices[i]
+        minn = prices[0]
+        for i in range(1,  len(prices)):
+            ans = max(ans, prices[i] - minn)
+            minn = min(minn, prices[i])
+        
         return ans
 
 
